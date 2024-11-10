@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gmail Spammer</title>
+</head>
+<body>
+    <h1>Gmail Spammer</h1>
+    
+    <form method="POST">
+        <label for="from_email">Your Email:</label><br>
+        <input type="email" name="from_email" id="from_email" required>
+        <p>To get an App Password from your Google Account, search for "App Passwords" in the Google Account search bar.</p>
+        <label for="password">App Password:</label><br>
+        <input type="password" name="password" id="password" required><br><br>
+
+        <label for="to_email">Target Email:</label><br>
+        <input type="email" name="to_email" id="to_email" required><br><br>
+
+        <label for="subject">Subject:</label><br>
+        <input type="text" name="subject" id="subject" required><br><br>
+
+        <label for="body">Body:</label><br>
+        <textarea name="body" id="body" rows="4" required></textarea><br><br>
+
+        <label for="num_times">Number of Emails to Send:</label><br>
+        <input type="number" name="num_times" id="num_times" required><br><br>
+
+        <button type="submit">Send Emails</button>
+    </form>
+
+    {% if result %}
+        <h3>Result:</h3>
+        <ul>
+            {% for message in result %}
+                <li>{{ message }}</li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+</body>
+</html>
